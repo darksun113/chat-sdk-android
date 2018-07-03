@@ -10,6 +10,7 @@ package co.chatsdk.ui.threads;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -144,7 +145,8 @@ public class PrivateThreadsFragment extends BaseFragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-
+        //mark by kelvin
+        Log.i("Kelvin", "Add conversation.");
         if (!inflateMenuItems)
             return super.onOptionsItemSelected(item);
 

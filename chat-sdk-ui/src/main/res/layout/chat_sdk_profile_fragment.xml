@@ -7,9 +7,9 @@
     android:layout_height="match_parent">
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/mainConstraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/mainConstraintLayout">
+        android:layout_height="wrap_content">
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/ivAvatar"
@@ -25,9 +25,20 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            fresco:placeholderImage="@drawable/icn_100_profile"
             fresco:failureImage="@drawable/icn_100_profile"
+            fresco:placeholderImage="@drawable/icn_100_profile"
             fresco:roundAsCircle="true" />
+
+        <Button
+            android:id="@+id/btnWallet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ic_wallet"
+            app:layout_constraintBottom_toTopOf="@+id/tvStatus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ivAvatar"
+            app:layout_constraintTop_toBottomOf="@+id/ivAvailability" />
 
         <TextView
             android:id="@+id/tvName"
@@ -134,10 +145,10 @@
             android:layout_marginTop="8dp"
             android:text="TextView"
             android:textSize="17sp"
-            app:layout_goneMarginTop="0dp"
             app:layout_constraintLeft_toRightOf="@+id/ivLocation"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvStatus" />
+            app:layout_constraintTop_toBottomOf="@+id/tvStatus"
+            app:layout_goneMarginTop="0dp" />
 
         <TextView
             android:id="@+id/tvFollows"
@@ -145,23 +156,23 @@
             android:layout_height="25dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
             android:text="@string/follows"
             android:textSize="17sp"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toRightOf="@+id/ivFollows"
             app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/tvPhone"
-            app:layout_constraintHorizontal_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/tvPhone" />
 
         <ImageView
             android:id="@+id/ivFollows"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:srcCompat="@drawable/icn_36_follows"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/ivPhone" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivPhone"
+            app:srcCompat="@drawable/icn_36_follows" />
 
         <ImageView
             android:id="@+id/ivFollowed"

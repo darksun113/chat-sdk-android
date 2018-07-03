@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ChatSDK</string>
+    <string name="title_activity_pick_payment">PickPayment</string>
+    <string name="msg_how_much">How much do you want to send?</string>
+    <string name="title_activity_wallet">WalletActivity</string>
+    <string name="scan_to_receive">Scan QR code to recieve</string>
+    <string name="mgs_or">Or</string>
+    <string name="btn_scan_to_pay">Scan to Pay</string>
 </resources>

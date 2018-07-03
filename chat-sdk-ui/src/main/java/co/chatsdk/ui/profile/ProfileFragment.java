@@ -1,8 +1,11 @@
 package co.chatsdk.ui.profile;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -34,6 +37,7 @@ import co.chatsdk.ui.utils.AvailabilityHelper;
 import co.chatsdk.ui.utils.ToastHelper;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import vin.kell.pay.WalletActivity;
 
 /**
  * Created by ben on 8/15/17.
@@ -62,6 +66,9 @@ public class ProfileFragment extends BaseFragment {
     protected ImageView locationImageView;
     protected ImageView phoneImageView;
     protected ImageView emailImageView;
+
+    //marked by kelvin
+    protected  Button walletButton;
 
     protected ArrayList<Disposable> disposables = new ArrayList<>();
 
@@ -117,6 +124,13 @@ public class ProfileFragment extends BaseFragment {
         blockButton = mainView.findViewById(R.id.btnBlock);
         deleteButton = mainView.findViewById(R.id.btnDelete);
 
+        //marked by kelvin
+        walletButton = mainView.findViewById(R.id.btnWallet);
+        walletButton.setOnClickListener(view -> {
+            Log.i("Kelvin", "Wallet clicked!");
+            startWalletActivity(this.getActivity());
+
+        });
 //        followsHeight = followsTextView.getHeight();
 //        followedHeight = followedTextView.getHeight();
 
@@ -137,6 +151,18 @@ public class ProfileFragment extends BaseFragment {
                         reloadData();
                     }
                 }));
+    }
+
+    //marked by kelvin
+    public void  startWalletActivity(Activity activity) {
+
+        Intent intent = new Intent(activity, WalletActivity.class);
+        if (intent.resolveActivity(activity.getPackageManager()) != null) {
+            activity.startActivity(intent);
+        }
+        else {
+            //resultHandler.result(null);
+        }
     }
 
     protected void setRowVisible (int textViewID, int imageViewID, boolean visible) {

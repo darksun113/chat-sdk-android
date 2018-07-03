@@ -64,7 +64,7 @@ dependencies {
 // Bintray upload properties
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
-if(properties.getProperty('bintray.enabled') != null) {
+if (properties.getProperty('bintray.enabled') != null) {
 
     group = CHAT_SDK_GROUP
     version = CHAT_SDK_VERSION
@@ -97,4 +97,3 @@ if(properties.getProperty('bintray.enabled') != null) {
     apply from: 'https://raw.githubusercontent.com/chat-sdk/JCenter/master/installv1.gradle'
     apply from: 'https://raw.githubusercontent.com/chat-sdk/JCenter/master/bintrayv1.gradle'
 }
-

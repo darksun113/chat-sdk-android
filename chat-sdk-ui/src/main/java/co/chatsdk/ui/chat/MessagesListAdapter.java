@@ -9,6 +9,7 @@ package co.chatsdk.ui.chat;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -177,6 +178,15 @@ public class MessagesListAdapter extends RecyclerView.Adapter<MessagesListAdapte
         }
 
         if (messageItem.getMessage().getMessageType() == MessageType.Text) {
+            //marked by kelvin
+            String text = messageItem.getMessage().getTextString();
+            if(text.contains("@@@")) {
+                messageItem.getMessage().setTextString(text.substring(3));
+                //holder.messageTextView.setBackgroundColor(Color.CYAN);
+            }else {
+                //stopped here:
+                //holder.messageTextView.setBackgroundColor(R.drawable.message_sent_3);
+            }
             holder.messageTextView.setText(messageItem.getMessage().getTextString() == null ? "" : messageItem.getMessage().getTextString());
             holder.setTextHidden(false);
         }

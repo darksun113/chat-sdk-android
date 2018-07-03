@@ -2,6 +2,7 @@ package co.chatsdk.ui.chat.options;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.widget.Toast;
 
 import co.chatsdk.core.dao.Thread;
@@ -31,6 +32,7 @@ public class MediaChatOption extends BaseChatOption {
         ChoosePhoto,
         TakeVideo,
         ChooseVideo,
+        PayMoney, //marked by kelvin
     }
 
     public MediaChatOption(String title, Integer iconResourceId, final Type type) {
@@ -57,6 +59,12 @@ public class MediaChatOption extends BaseChatOption {
                     if(type == Type.TakePhoto || type == Type.ChoosePhoto) {
                         connector.connect(NM.imageMessage().sendMessageWithImage(result1, thread), e);
                     }
+                    //marked by kelvin
+                    else if (type == Type.PayMoney) {
+                        Log.i("Kelvin", "OK, now send your money.");
+                        //connector.connect(NM.imageMessage().sendMessageWithImage(result1, thread), e);
+                        connector.connect(NM.thread().sendMessageWithText(result1,thread), e);
+                    }
                     else if((type == Type.TakeVideo || type == Type.ChooseVideo) && NM.videoMessage() != null) {
                         connector.connect(NM.videoMessage().sendMessageWithVideo(result1, thread), e);
                     }
@@ -76,6 +84,10 @@ public class MediaChatOption extends BaseChatOption {
                 }
                 if(type == Type.ChooseVideo) {
                     mediaSelector.startChooseVideoActivity(activity, handleResult);
+                }
+                //marked by kelvin
+                if(type == Type.PayMoney) {
+                    mediaSelector.startPickPaymentActivity(activity, handleResult);
                 }
             } catch (Exception ex) {
                 ToastHelper.show(activity, ex.getLocalizedMessage());

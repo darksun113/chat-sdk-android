@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.soundcloud.android.crop.Crop;
 
@@ -17,6 +18,7 @@ import co.chatsdk.core.session.ChatSDK;
 import co.chatsdk.core.utils.ImageUtils;
 import co.chatsdk.ui.R;
 import co.chatsdk.ui.utils.Cropper;
+import vin.kell.pay.PickPayment;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -30,8 +32,10 @@ public class MediaSelector {
     public static final int CHOOSE_PHOTO = 101;
     public static final int TAKE_VIDEO = 102;
     public static final int CHOOSE_VIDEO = 103;
+    public static final int PAY_MONEY = 104;    //marked by kelvin
     protected String filePath;
     protected Result resultHandler;
+
 
     public interface Result {
         void result (String result);
@@ -43,6 +47,18 @@ public class MediaSelector {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (intent.resolveActivity(activity.getPackageManager()) != null) {
             activity.startActivityForResult(intent, TAKE_PHOTO);
+        }
+        else {
+            resultHandler.result(null);
+        }
+    }
+    //marked by kelvin
+    public void startPickPaymentActivity(Activity activity, Result resultHandler) {
+        this.resultHandler = resultHandler;
+
+        Intent intent = new Intent(activity, PickPayment.class);
+        if (intent.resolveActivity(activity.getPackageManager()) != null) {
+            activity.startActivityForResult(intent, PAY_MONEY);
         }
         else {
             resultHandler.result(null);
@@ -187,6 +203,15 @@ public class MediaSelector {
 
                 resultHandler.result(videoPath);
                 clear();
+            }
+        }
+        //marked by kelvin
+        else if (requestCode == PAY_MONEY && resultCode == RESULT_OK) {
+            if(resultHandler != null) {
+                double amount = intent.getDoubleExtra("Amount", 0.0);
+                String msg = String.format("@@@%.2f coins was sent.",amount);
+                Log.i("Kelvin",msg);
+                resultHandler.result(msg);
             }
         }
     }

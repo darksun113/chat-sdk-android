@@ -85,6 +85,8 @@ public class BaseInterfaceAdapter implements InterfaceAdapter {
         if(ChatSDK.config().imageMessagesEnabled) {
             chatOptions.add(new MediaChatOption("Take Photo", MediaChatOption.Type.TakePhoto));
             chatOptions.add(new MediaChatOption("Choose Photo", MediaChatOption.Type.ChoosePhoto));
+            //marked by kelvin
+            chatOptions.add(new MediaChatOption("Pay", MediaChatOption.Type.PayMoney));
         }
 
     }

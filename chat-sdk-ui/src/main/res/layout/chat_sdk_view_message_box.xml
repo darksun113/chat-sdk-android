@@ -23,14 +23,14 @@
         android:layout_height="wrap_content">
 
         <EditText
+            android:id="@+id/chat_sdk_et_message_to_send"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/chat_sdk_et_message_to_send"
-            android:hint="Message"
             android:gravity="bottom"
-            android:maxLines="@integer/chat_sdk_max_message_lines"
+            android:hint="Message"
+            android:inputType="textShortMessage|textMultiLine"
             android:isScrollContainer="true"
-            android:inputType="textShortMessage|textMultiLine"/>
+            android:maxLines="@integer/chat_sdk_max_message_lines" />
     </FrameLayout>
 
     <ImageButton

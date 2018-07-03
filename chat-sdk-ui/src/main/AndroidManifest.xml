@@ -2,8 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="co.chatsdk.ui">
 
-    <!--For capturing photos in profile and chat UI-->
-    <uses-feature android:name="android.hardware.camera" android:required="true" />
+    <!-- For capturing photos in profile and chat UI -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -12,57 +15,65 @@
     <application
         android:allowBackup="true"
         android:supportsRtl="true">
-
-        <activity android:name=".login.LoginActivity"
+        <activity
+            android:name=".login.LoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/SdkTheme">
-        </activity>
-
-        <activity android:name=".threads.ThreadDetailsActivity"
-            android:windowSoftInputMode="stateHidden"
-            android:theme="@style/ChatSDKSlidingTransactionTheme"/>
-
-        <activity android:name=".chat.ChatActivity"
+            android:theme="@style/SdkTheme" />
+        <activity
+            android:name=".threads.ThreadDetailsActivity"
+            android:theme="@style/ChatSDKSlidingTransactionTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".chat.ChatActivity"
+            android:launchMode="singleTop"
             android:parentActivityName=".main.MainActivity"
-            android:launchMode = "singleTop"
-            android:windowSoftInputMode="stateHidden|adjustResize"
-            android:theme="@style/ChatSDKSlidingTransactionTheme">
+            android:theme="@style/ChatSDKSlidingTransactionTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize">
 
-            <!--<intent-filter>-->
-                <!--<action android:name="co.chatsdk.QuickReply" />-->
-                <!--<category android:name="android.intent.category.DEFAULT" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="co.chatsdk.QuickReply" /> -->
+            <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+            <!-- </intent-filter> -->
 
         </activity>
-
-        <activity android:name=".profile.EditProfileActivity"
-            android:windowSoftInputMode="stateHidden"
-            android:theme="@style/SdkTheme"/>
-
-        <activity android:name=".search.SearchActivity"
-            android:windowSoftInputMode="stateHidden"
-            android:theme="@style/SdkTheme"/>
-
-        <activity android:name=".profile.ProfileActivity"
-            android:windowSoftInputMode="stateHidden"
-            android:theme="@style/SdkTheme"/>
-
-        <activity android:name=".main.MainActivity"
-            android:launchMode = "singleTask"
+        <activity
+            android:name=".profile.EditProfileActivity"
             android:theme="@style/SdkTheme"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".search.SearchActivity"
+            android:theme="@style/SdkTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".profile.ProfileActivity"
+            android:theme="@style/SdkTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".main.MainActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/SdkTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".contacts.SelectContactActivity"
+            android:theme="@style/ChatSDKSlidingTransactionTheme"
+            android:windowSoftInputMode="stateHidden" />
 
-        <activity android:name=".contacts.SelectContactActivity"
-            android:windowSoftInputMode="stateHidden"
-            android:theme="@style/ChatSDKSlidingTransactionTheme"/>
-
-        <!--Crop image-->
+        <!-- Crop image -->
         <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
 
-        <!-- Google Maps Metadata-->
+        <!-- Google Maps Metadata -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
+        <activity
+            android:name="vin.kell.pay.PickPayment"
+            android:label="@string/title_activity_pick_payment"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="vin.kell.pay.WalletActivity"
+            android:label="@string/title_activity_wallet"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
+
 </manifest>

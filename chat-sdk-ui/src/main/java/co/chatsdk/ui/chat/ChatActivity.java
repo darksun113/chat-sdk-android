@@ -17,6 +17,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -859,6 +860,8 @@ public class ChatActivity extends BaseActivity implements TextInputDelegate, Cha
 
     @Override
     public void executeChatOption(ChatOption option) {
+        //marked by kelvin
+        Log.i("Kelvin","Menu Clicked?");
         if(option.getType() == ChatOptionType.SendMessage) {
             handleMessageSend((Observable<MessageSendProgress>) option.execute(this, activityResultPublishSubject, thread));
         }
