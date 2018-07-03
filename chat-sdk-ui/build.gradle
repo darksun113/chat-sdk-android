@@ -58,6 +58,9 @@ dependencies {
     compile 'com.soundcloud.android:android-crop:1.0.1@aar'
     compile 'com.facebook.fresco:fresco:1.5.0'
 
+    //marked by kelvin
+    compile 'com.github.blikoon:QRCodeScanner:0.1.2'
+
     compile project(path: ':chat-sdk-core')
 }
 

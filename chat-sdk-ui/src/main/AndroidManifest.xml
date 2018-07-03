@@ -73,6 +73,10 @@
         <activity
             android:name="vin.kell.pay.WalletActivity"
             android:label="@string/title_activity_wallet"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="vin.kell.pay.ScanToPayActivity"
+            android:label="@string/title_activity_scan_to_pay"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
