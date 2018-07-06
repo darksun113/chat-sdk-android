@@ -7,7 +7,7 @@ import org.ethereum.geth.Node;
 import org.ethereum.geth.NodeConfig;
 
 public class WalletManager {
-    private static final WalletManager ourInstance = null;
+    private static WalletManager ourInstance = null;
     private String work_dir = null;
     private Node node = null;
 
@@ -26,6 +26,7 @@ public class WalletManager {
     private void initNode() {
         if(node==null) {
             try {
+                //change to sync with light mode
                 node = Geth.newNode(work_dir + "/.ethereum", new NodeConfig());
                 node.start();
             } catch (Exception e) {
